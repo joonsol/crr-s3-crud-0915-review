@@ -1,0 +1,24 @@
+/* styles/main.css 혹은 main.scss 최상단 */
+:root{
+  --link:#646cff;
+  --link-hover:#535bf2;
+  --text:#213547;
+  --bg:#ffffff;
+  --btn-dark:#1a1a1a;
+  --btn-light:#f9f9f9;
+  --border:#eee;
+  --ring:0 0 0 3px color-mix(in srgb, var(--link) 30%, transparent);
+}
+
+
+*{margin:0; padding:0; box-sizing:border-box;}
+ul{list-style:none;}
+
+a{
+  font-weight:500;
+  color:var(--link);
+  text-decoration:none;
+  &:hover{ color:var(--link-hover); }
+}
+
+h1{ font-size:3.2em; line-height:1.1; }
