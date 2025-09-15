@@ -1,8 +1,17 @@
-import React from 'react'
+import { useState } from "react";
+import api from "../api";
 import "./style/UploadForm.scss"
-const UploadForm = () => {
+const UploadForm = ({ onDone }) => {
+  const [file, setFile] = useState(null);
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
   return (
-    <div>UploadForm</div>
+    <form className="form-list">
+      <input type="file" className="file-btn"/>
+      <input type="text"  placeholder="title"/>
+      <input type="text"  placeholder="description"/>
+       <button type="submit" className="upload-btn">Upload</button>
+    </form>
   )
 }
 
