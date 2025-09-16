@@ -30,7 +30,6 @@ router.post('/presign', async (req, res) => {
   }
 })
 
-
 // thunderClient  확인
 router.post("/", async (req, res) => {
   try {
@@ -62,7 +61,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-
 // 파일 메타데이터 목록 조회 API
 router.get("/", async (req, res) => {
   try {
@@ -86,8 +84,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// 단건
-// 파일 메타데이터 단건 조회 API
+// 단건 파일 메타데이터 단건 조회 API
 router.get("/:id", async (req, res) => {
   try {
     // 요청 파라미터(:id)로 MongoDB에서 해당 문서 찾기
@@ -107,7 +104,6 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ error: "파일 단건 조회 실패" });
   }
 });
-
 
 // 파일 메타데이터 수정 API
 router.patch("/:id", async (req, res) => {
@@ -134,6 +130,7 @@ router.patch("/:id", async (req, res) => {
     res.status(500).json({ error: "파일 메타데이터 수정 실패" });
   }
 });
+
 // 파일 삭제 API (DB 문서 + S3 객체 동시 삭제)
 router.delete("/:id", async (req, res) => {
   try {
