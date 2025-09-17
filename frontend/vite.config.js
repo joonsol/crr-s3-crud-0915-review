@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react()],
   css:{
     devSourcemap:true
-  }
+  },
+    server: {
+    port: 5174,   // ✅ 기본 포트 변경
+  },
 })
