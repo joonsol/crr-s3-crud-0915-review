@@ -30,9 +30,10 @@ a{
 h1{ font-size:3.2rem; line-height:1.1; }
 .container {
   max-width: 80rem;
+  min-width: 50rem;
   margin: auto;
   @media screen and (max-width:799px){
-    padding: 0 2rem;
+   margin: 0 2rem;
     
   }
 }

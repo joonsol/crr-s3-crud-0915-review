@@ -48,9 +48,23 @@ const UploadForm = ({ onDone }) => {
   return (
     <form className="form-list" onSubmit={upload} >
       <input type="file" className="file-btn" onChange={e => setFile(e.target.files[0])} />
-      <input type="text" placeholder="title" value={title} onChange={e => setTitle(e.target.value)} />
-      <input type="text" placeholder="description" value={desc} onChange={e => setDesc(e.target.value)} />
-      <button type="submit" className="upload-btn">Upload</button>
+      <div className="left">
+
+        <input
+          type="text"
+          placeholder="title"
+          value={title}
+          onChange={e => setTitle(e.target.value)} />
+
+        <input
+          type="text"
+          placeholder="description"
+          value={desc}
+          onChange={e => setDesc(e.target.value)} />
+        <button
+          type="submit"
+          className="upload-btn">Upload</button>
+      </div>
     </form>
   )
 }

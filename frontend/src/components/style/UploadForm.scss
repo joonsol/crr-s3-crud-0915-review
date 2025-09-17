@@ -1,7 +1,7 @@
 .form-list {
   /* 컨테이너 */
   display: flex;
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 12px;
   align-items: center;
   font-size: 16px;
@@ -11,22 +11,30 @@
   border-radius: 12px;
   background: var(--bg, #fff);
 
-  >* {
+  .left {
+    display: flex;
+    gap: 1rem;
+  }
+
+  input[type="text"] {
+    // flex: 1;
+    border: 1px solid var(--border, #eee);
     border-radius: .5rem;
     padding: 1rem;
   }
 
-  input[type="text"] {
-    flex: 1;
-    border: 1px solid var(--border, #eee);
-  }
-
   .file-btn,
   .upload-btn {
-    flex: 1 1 100px;
+
     /* 최소 240px, 남는 공간 채움 */
-    border: none !important;
-    outline: none !important;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+  }
+
+  .upload-btn {
+    padding: 0 2rem;
+
   }
 
   .file-btn::file-selector-button {

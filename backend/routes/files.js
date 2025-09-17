@@ -140,6 +140,22 @@ router.delete("/:id", async (req, res) => {
     // 없으면 404 Not Found 반환
     if (!it) return res.sendStatus(404);
 
+
+    
+    // 1) Key 정규화: 혹시 인코딩된 상태면 복원
+    const rawKey = typeof it.key === 'string' ? it.key : '';
+    const key = decodeURIComponent(rawKey);
+
+
+    // 2) 안전장치: 우리가 관리하는 prefix만 허용
+    if (!key.startsWith('uploads/')) {
+      console.warn('[DEL] Blocked delete for unexpected key:', key);
+      return res.status(400).json({ error: '삭제 가능한 경로가 아닙니다.' });
+    }
+
+        // 3) 디버그 로그로 실제 지우는 키 확인
+    console.log('[DEL] S3 delete key =', key);
+
     // S3 버킷에서 실제 파일 삭제
     await deleteObject(it.key);
 
@@ -147,7 +163,7 @@ router.delete("/:id", async (req, res) => {
     await it.deleteOne();
 
     // 성공 시 202 
-    res.status(200).json({ message: "파일 삭제 완료",id: req.params.id  });
+     return res.status(204).end();
   } catch (error) {
     console.error("❌ 파일 삭제 에러:", error);
     res.status(500).json({ error: "파일 삭제 실패" });
